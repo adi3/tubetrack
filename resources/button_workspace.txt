@@ -1,0 +1,23 @@
+Blue Button:
+http://dabuttonfactory.com/#t=&f=Calibri-Bold&ts=24&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=299bd9&ebgc=2380cc&bs=1&bc=1370b7&w=170&h=50
+
+Red Button:
+http://dabuttonfactory.com/#t=&f=Calibri-Bold&ts=24&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=bd1c1c&ebgc=a51717&bs=1&bc=851111&w=170&h=50
+
+by Title:
+http://dabuttonfactory.com/#t=by%20Title&f=Calibri-Bold&ts=21&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=299bd9&ebgc=2380cc&bs=1&bc=1370b7&w=80&h=30
+
+by Views:
+http://dabuttonfactory.com/#t=by%20Views&f=Calibri-Bold&ts=18&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=bd1c1c&ebgc=a51717&bs=1&bc=851111&w=80&h=30
+
+by Likes:
+http://dabuttonfactory.com/#t=by%20Likes&f=Calibri-Bold&ts=20&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=299bd9&ebgc=2380cc&bs=1&bc=1370b7&w=80&h=30
+
+by Duration:
+http://dabuttonfactory.com/#t=by%20Duration&f=Calibri-Bold&ts=14&tc=ffffff&it=png&c=5&bgt=pyramid&bgc=bd1c1c&ebgc=a51717&bs=1&bc=851111&w=80&h=30
+
+
+Icon-Font:
+Favicon Font: Viner Hand ITC
+OR Font: Vladimir Script in Paint.NET
+Color: B2A69A

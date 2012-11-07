@@ -1,0 +1,11 @@
+---
+db1: 
+  name: main
+web1: 
+  name: tubetrack
+  php_extensions: 
+    - mysql
+  shared_writable_dirs: 
+    - application/cache
+    - application/logs
+    - github
