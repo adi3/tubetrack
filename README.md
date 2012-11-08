@@ -6,7 +6,7 @@ Built with CodeIgniter, this app allows users to enter a list of YouTube video l
 * Image thumbnail
 * Title
 * Views
-* Likes, and
+* Likes
 * Duration
 
 Of these, the user can sort the displayed videos by likes, views, duration and title (ie, alphabetically).
