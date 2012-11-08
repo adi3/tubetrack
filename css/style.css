@@ -288,10 +288,6 @@ button[type="submit"]{
     text-align:left;
 }
 
-pre{
-    margin: 1px;
-}
-
 #no-results{
     text-align: center;
     margin-top: 30px;
@@ -299,13 +295,24 @@ pre{
 }
 
 #cross{
-    margin-left: 4px;
+    margin-left: 6px;
     cursor: pointer;
-    margin-top: 11px;
+    margin-top: 10px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #cross {
+        margin-top: 14px; /* This works only in Safari and Google Chrome */
+        margin-left: 15px;
+    }
 }
 
 #cross:hover img{
     box-shadow: 0px 0px 5px #B2A69A;
+}
+
+pre{
+    margin: 1px;
 }
 
 #results_container{
