@@ -35,7 +35,7 @@
                     </div>
                     
                     <div id="compare_btn" class="grid_1">
-                        <button type="submit"><?= img("resources/compare.png") ?></button>
+                        <button type="submit"><?= img("resources/track.png") ?></button>
                     </div>
                     
                     <?= form_close() ?>

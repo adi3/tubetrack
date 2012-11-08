@@ -73,7 +73,7 @@ class Track_model extends CI_Model {
             if($entry->id != '') {
                 $data = Array(
                    'key' => $key,
-                   'id' => $entry->id,
+                   'id'  => $entry->id,
                 );
                 $this->db->insert('saved', $data); 
             }
@@ -114,12 +114,13 @@ class Track_model extends CI_Model {
             
         foreach($arr as $entry){            
             $data = Array(
-                'key' => $key,
-                'id' => $entry->id,
-                'title' => $entry->title,
-                'duration' => $entry->duration,
-                'views' => $entry->views,
-                'likes' => $entry->likes
+                'timestamp' => time(),
+                'key'       => $key,
+                'id'        => $entry->id,
+                'title'     => $entry->title,
+                'duration'  => $entry->duration,
+                'views'     => $entry->views,
+                'likes'     => $entry->likes
             );
             $this->db->insert('stats', $data);
         }
