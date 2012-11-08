@@ -3,11 +3,11 @@ One-click stats tracking for YouTube videos.
 
 TubeTrack is a tool for quick and easy tracking, sorting and comparing of YouTube videos in real-time.
 Built with CodeIgniter, this app allows users to enter a list of YouTube video links they wish to keep track of. For each valid link, the corresponding video's information and statistics are retrieved from YouTube, and displayed alphabetically to the user for comparing and further sorting. Currently, the properties displayed on the results page are the video's
-: Image thumbnail
+* Image thumbnail
 * Title
-:Views
-: * Likes, and
-: * Duration
+* Views
+* Likes, and
+* Duration
 Of these, the user can sort the displayed videos by likes, views, duration and title (ie, alphabetically).
 
 This tool makes the process of comparing the stats of several YouTube videos extremely easy. With just one click, the user can retrieve all information from the links entered and sort them, instead of manually visiting each link and manually noting down video information (for manual comparing later on).
