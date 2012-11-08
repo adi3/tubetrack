@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
     var input = '';			// User input in the links form
     var key = '';			// User input in the keys form
-    var cross_img = "<img id='cross' src='resources/cross.png' />";
+    var cross_img = "<img id='cross' src=" + site_url + "resources/cross.png />";
 
     /*
      * Clears links textarea from default message upon gaining focus.
@@ -45,7 +45,9 @@ $(document).ready(function(){
         if(is_empty(links, links_prompt)) return false;
     	if(!is_valid(links)) return false;
         if(links != input) $("#key_store").val(null);
-    	set_error_msg("<img src='resources/load.gif' />" + " &nbsp; " + "<i>Processing input...</i>");
+        
+    	set_error_msg("<i>Processing input...</i>");
+        effectFadeIn('#error');
     });
     
     
@@ -56,7 +58,6 @@ $(document).ready(function(){
     $('#form_key').submit(function() {
         var key = $('#input_key').val();
         if(is_empty(key, key_prompt)) return false;
-    	set_error_msg("<img src='resources/load.gif' />" + " &nbsp; " + "<i>Processing input...</i>");
     });
     
     
@@ -85,7 +86,6 @@ $(document).ready(function(){
 	    if(is_empty(new_input, links_prompt)) return;
 	    if(is_repeated(new_input, input)) return;
     	if(!is_valid(new_input)) return false;
-    	set_error_msg("<img src='resources/load.gif' />" + " &nbsp; " + "<i>Processing input...</i>");
     	
 	    input = new_input;
 	     
@@ -188,7 +188,15 @@ $(document).ready(function(){
 		 $("#error").fadeOut('fast', function(){
             $("#error").html(msg).fadeIn();
             $("#cross").html(cross_img).fadeIn();
-        }); 
+        });
+	}
+	
+	function effectFadeIn(obj) {
+		$(obj).fadeOut(500).fadeIn(500, effectFadeOut(obj))
+	}
+	
+	function effectFadeOut(obj) {
+		$(obj).fadeIn(500).fadeOut(500, effectFadeIn(obj))
 	}
 	
 });
