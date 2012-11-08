@@ -46,8 +46,7 @@ $(document).ready(function(){
     	if(!is_valid(links)) return false;
         if(links != input) $("#key_store").val(null);
         
-    	set_error_msg("<i>Processing input...</i>");
-        effectFadeIn('#error');
+        set_processing("<i>Processing input...</i>");
     });
     
     
@@ -58,6 +57,8 @@ $(document).ready(function(){
     $('#form_key').submit(function() {
         var key = $('#input_key').val();
         if(is_empty(key, key_prompt)) return false;
+        
+        set_processing("<i>Retrieving data for key "+ key +"...</i>");
     });
     
     
@@ -191,12 +192,29 @@ $(document).ready(function(){
         });
 	}
 	
+    /*
+     * Blinks the given message while processing validated user input.
+     */
+	function set_processing(msg){
+    	set_error_msg(msg);
+        effectFadeIn('#error');
+	}
+	
+	
+    /*
+     * Fades in the given object after half a second.
+     */
 	function effectFadeIn(obj) {
 		$(obj).fadeOut(500).fadeIn(500, effectFadeOut(obj))
 	}
 	
+	
+    /*
+     * Fades out the given object after half a second.
+     */
 	function effectFadeOut(obj) {
 		$(obj).fadeIn(500).fadeOut(500, effectFadeIn(obj))
 	}
+
 	
 });

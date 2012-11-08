@@ -51,7 +51,7 @@
    <div id="border_container" class="grid_3">
    <div id="cpanel" class="grid_3" style="padding-bottom:12px">
        <div id="github" class="grid_3">
-       		<a href="https://github.com/adi3/leaderboard" target="_blank"><?= img("resources/github.png"); ?></a>
+       		<a href="https://github.com/adi3/tubetrack" target="_blank"><?= img("resources/github.png"); ?></a>
        </div>
    </div><!-- End cpanel -->
    </div> <!-- End border_container -->
