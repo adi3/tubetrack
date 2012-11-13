@@ -53,6 +53,7 @@ This repository only holds files that are modified in or added to the standard C
 
 * Show a link-list in the sidebar of videos ranked on the page
 * Memcache data received from YouTube
+* Optimize for mobile display
 
 ### Notice
 
