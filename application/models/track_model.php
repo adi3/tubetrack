@@ -17,10 +17,15 @@ class Track_model extends CI_Model {
      */  
     function parse_links($links_string){
         $links_array = explode("\n", $links_string);
+        foreach($links_array as $link){
+            if(strpos($link, "list=")) $this->_add_links_in_list($link, $links_array);
+        }
+        
         $id_array = Array();
         
         for($i=0; $i<count($links_array); $i++){
             $link = $links_array[$i];
+            if(strpos($link, 'list=')) continue;
             $index = strpos($link, "v=") + 2;
             $id_array[$i]->id = substr($link, $index, 11);
         }
@@ -176,6 +181,112 @@ class Track_model extends CI_Model {
      * Private Functions * 
      *********************/ 
      
+    /**
+     * Fetches the videos for the received playlist link from
+     * YouTube and adds a raw link for each video to links_array.
+     * This raw link is simply a YouTube video ID concatenated
+     * with "v=" for parsing.
+     * 
+     * @access  public
+     * @param   string     raw playlist link from user
+     * @param   array      array with raw YouTube video links
+     * @return  void
+     */    
+    function _add_links_in_list($link, &$links_array){
+        $offset = 1;
+        $max_results = 50;
+        
+        $list_id = $this->_get_list_id($link);
+        $total_runs = $this->_get_total_runs($list_id, $max_results);
+        
+        for($i=0; $i<$total_runs; $i++){
+            $entry_data = $this->_get_playlist_data($list_id, $max_results, $offset);
+            $this->_add_playlist_ids($entry_data, $links_array);
+
+            $offset += $max_results;           
+        }
+    }
+    
+    
+    /**
+     * Receives a raw playlist link and returns its YouTube ID
+     * 
+     * @access  public
+     * @param   string     raw playlist link from user
+     * @return  string     YouTube ID for the playlist
+     */  
+    function _get_list_id($link){
+        $start = strpos($link, "list=") + 5;
+        $end = strpos($link, "&", $start);
+        if($end) return substr($link, $start, $end-$start);
+        else return substr($link, $start);
+    }
+    
+    
+    /**
+     * YouTube API returns a max of 50 results per request for
+     * a playlist feed. This function returns the total number
+     * of requests that need to be made to get the data for 
+     * all videos in a playlist.
+     * 
+     * @access  public
+     * @param   string     YouTube ID for the playlist
+     * @param   int        max video results requested from YouTube
+     * @return  int        number of feed requests to be made
+     */
+    function _get_total_runs($list_id, $max_results){
+        $dry_run = json_decode(file_get_contents(
+                         "http://gdata.youtube.com/feeds/api/playlists/".$list_id."?v=2&alt=json&max-results=0"), true);
+        $total_vids = $dry_run['feed']['openSearch$totalResults']['$t'];
+        return ceil($total_vids/$max_results);
+    }
+    
+        
+    /**
+     * Receives a (partial) YouTube JSON feed for a playlist and 
+     * adds a raw link for each video in the received data to 
+     * links_array.
+     * This raw link is simply a YouTube video ID concatenated
+     * with "v=" for parsing.
+     * 
+     * @access  public
+     * @param   string     YouTube ID for the playlist
+     * @param   int        max video results requested from YouTube
+     * @param   int        element number after which results are requested
+     * @return  array      array holding YouTube data for videos
+     */    
+    function _get_playlist_data($list_id, $max_results, $offset){
+        $feed_url = "http://gdata.youtube.com/feeds/api/playlists/".$list_id.
+                                "?v=2&alt=json&max-results=".$max_results."&start-index=".$offset;
+        $table = json_decode(file_get_contents($feed_url), true);
+        return $table['feed']['entry'];
+    }
+    
+    
+    /**
+     * Receives a (partial) YouTube JSON feed for a playlist and 
+     * adds a raw link for each video in the received data to 
+     * links_array.
+     * This raw link is simply a YouTube video ID concatenated
+     * with "v=" for parsing.
+     * 
+     * @access  public
+     * @param   array     array holding YouTube data for videos
+     * @param   array     array with raw YouTube video links
+     * @return  void
+     */     
+    function _add_playlist_ids($entry_data, &$links_array){
+        for($j=0; $j<count($entry_data); $j++){
+            if(isset($entry_data[$j]['app$control'])){
+                if($entry_data[$j]['app$control']['yt$state']['name'] == "deleted") continue;
+            }
+            
+            $id = $entry_data[$j]['media$group']['yt$videoid']['$t'];
+            array_push($links_array, "v=" . $id);
+        }
+    }
+    
+    
     /**
      * Retrieves information from YouTube corresponding to the video ID
      * and adds it to the referenced array.

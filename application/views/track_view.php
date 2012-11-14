@@ -20,7 +20,7 @@
                     <?= form_open('track/compare', 'id="form_links"') ?>
                     
                     <?php 
-                        $links_prompt = "Enter YouTube links one per line...";
+                        $links_prompt = "Enter YouTube video or playlist links one per line...";
                         $textarea = Array("name"  => "input_links",
                                           "id"    => "input_links",
                                           "value" => $links_prompt);

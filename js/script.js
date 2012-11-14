@@ -58,7 +58,7 @@ $(document).ready(function(){
         var key = $('#input_key').val();
         if(is_empty(key, key_prompt)) return false;
         
-        set_processing("<i>Retrieving data for key "+ key +"...</i>");
+        set_processing("<i>Retrieving data for key <u>"+ key +"</u>...</i>");
     });
     
     
@@ -156,14 +156,19 @@ $(document).ready(function(){
 	
     /*
      * Conducts a simple test for link validity by checking if each 
-     * submitted link has 'youtube.com' and 'v=' present in the string.
+     * submitted link has 'youtube.com' and ('v=' or 'list=') present
+     * in the string.
      */
 	function is_valid(links){
 		var arr = links.split("\n");
 		
 		for(var i=0; i<arr.length; i++){
 			if(arr[i] != '') {
-				if(arr[i].indexOf("youtube.com") == -1 || arr[i].indexOf("v=") == -1){
+				if(arr[i].indexOf("youtube.com") == -1){
+					set_error_msg("<i>Hmm... those links don't seem too valid.</i>");		       
+					return false;
+				}
+				if(arr[i].indexOf("v=") == -1 && arr[i].indexOf("list=") == -1){
 					set_error_msg("<i>Hmm... those links don't seem too valid.</i>");		       
 					return false;
 				}
