@@ -15,7 +15,7 @@ This tool makes the process of comparing the stats of several YouTube videos ext
 
 Users also have the choice to save a list of (unlimited) links with TubeTrack so they do not have to repeatedly enter the same data for comparing each time. Each video list is assigned a unique TubeTrack ID, through which the users can retrieve their lists. A special update feature is added for saved lists, through which the video stats can be updated anytime with a single click.
 
-In addition, saved lists can be shared with others through the URL: *http://tubetrack.pagodabox.com/track/retrieve/your_tubetrack_key*
+In addition, saved lists can be shared with others through the URL: *http://tubetrack.hacero.com/track/retrieve/your_tubetrack_key*
 
 **Note:** Since the app has to retrieve updated info from YouTube for all entries, the results page load time is directly proportional to the number of valid links entered.
 
