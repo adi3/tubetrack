@@ -1,4 +1,4 @@
-# [TUBETRACK] (http://tubetrack.pagodabox.com)
+# [TUBETRACK] (http://tubetrack.hacero.com)
 ### One-click stats tracking for YouTube videos
 
 TubeTrack is a tool for quick and easy tracking, sorting and comparing of YouTube videos in real-time.
@@ -34,7 +34,7 @@ In addition, saved lists can be shared with others through the URL: *http://tube
 ### Links
 
 * Source: http://github.com/adi3/tubetrack
-* Demo: http://tubetrack.pagodabox.com
+* Demo: http://tubetrack.hacero.com
 
 ### Stuff Used
 
