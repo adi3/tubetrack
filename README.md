@@ -1,5 +1,5 @@
 # [TUBETRACK] (http://tubetrack.pagodabox.com)
-#### One-click stats tracking for YouTube videos
+### One-click stats tracking for YouTube videos
 
 TubeTrack is a tool for quick and easy tracking, sorting and comparing of YouTube videos in real-time.
 Built with CodeIgniter, this app allows users to enter a list of YouTube video links they wish to keep track of. For each valid link, the corresponding video's information and statistics are retrieved from YouTube, and displayed alphabetically to the user for comparing and further sorting. Currently, the properties displayed on the results page are the videos':
