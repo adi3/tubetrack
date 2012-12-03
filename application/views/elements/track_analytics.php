@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script defer='defer' type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36037014-2']);
